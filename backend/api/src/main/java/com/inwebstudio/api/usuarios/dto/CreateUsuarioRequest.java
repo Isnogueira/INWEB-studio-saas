@@ -1,4 +1,4 @@
-package com.inwebstudio.api.users.dto;
+package com.inwebstudio.api.usuarios.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -7,13 +7,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UpdateUserRequest {
+public class CreateUsuarioRequest {
 
     @NotBlank
-    private String name;
+    private String nome;
 
     @Email
     @NotBlank
     private String email;
+
+    @NotBlank
+    private String senha;
 
 }
