@@ -1,39 +1,39 @@
-package com.inwebstudio.api.users.mapper;
+package com.inwebstudio.api.usuarios.mapper;
 
-import com.inwebstudio.api.users.dto.CreateUserRequest;
-import com.inwebstudio.api.users.dto.UpdateUserRequest;
-import com.inwebstudio.api.users.dto.UserResponse;
-import com.inwebstudio.api.users.entity.Usuario;
+import com.inwebstudio.api.usuarios.dto.CreateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UpdateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UsuarioResponse;
+import com.inwebstudio.api.usuarios.entity.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component
-public class  UserMapper {
+public class  UsuarioMapper {
 
-    public Usuario toEntity(CreateUserRequest request) {
+    public Usuario toEntity(CreateUsuarioRequest request) {
 
         return Usuario.builder()
-                .name(request.getName())
+                .nome(request.getNome())
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .senha(request.getSenha())
                 .build();
 
     }
 
-    public UserResponse toResponse(Usuario usuario) {
+    public UsuarioResponse toResponse(Usuario usuario) {
 
-        return UserResponse.builder()
+        return UsuarioResponse.builder()
                 .id(usuario.getId())
-                .name(usuario.getName())
+                .nome(usuario.getNome())
                 .email(usuario.getEmail())
-                .active(usuario.getActive())
-                .createdAt(usuario.getCreatedAt())
+                .ativo(usuario.getAtivo())
+                .criadoEm(usuario.getCriado_em())
                 .build();
 
     }
 
 
-    public void updateEntity(UpdateUserRequest request, Usuario usuario) {
-        usuario.setName(request.getName());
+    public void updateEntity(UpdateUsuarioRequest request, Usuario usuario) {
+        usuario.setNome(request.getNome());
         usuario.setEmail(request.getEmail());
     }
 

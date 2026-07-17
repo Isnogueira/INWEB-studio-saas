@@ -1,4 +1,4 @@
-package com.inwebstudio.api.users.dto;
+package com.inwebstudio.api.usuarios.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -8,16 +8,16 @@ import java.util.UUID;
 
 @Getter
 @Builder
-public class UserResponse {
+public class UsuarioResponse {
 
     private UUID id;
 
-private String name;
+private String nome;
 
 private String email;
 
-private Boolean active;
+private Boolean ativo;
 
-private LocalDateTime createdAt;
+private LocalDateTime criadoEm;
 
 }

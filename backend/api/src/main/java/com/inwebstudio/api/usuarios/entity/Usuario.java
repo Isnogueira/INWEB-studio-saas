@@ -1,4 +1,4 @@
-package com.inwebstudio.api.users.entity;
+package com.inwebstudio.api.usuarios.entity;
 
 import com.inwebstudio.api.common.enums.Perfil;
 import jakarta.persistence.*;
@@ -34,10 +34,10 @@ public class Usuario {
     private Perfil perfil;
 
     @Column(nullable = false)
-    private Boolean ativo = false;
+    private Boolean ativo;
 
     @Column(nullable = false)
-    private Boolean email_verificado = false;
+    private Boolean email_verificado;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime criado_em;

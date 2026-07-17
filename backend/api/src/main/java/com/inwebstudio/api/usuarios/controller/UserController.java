@@ -1,9 +1,9 @@
-package com.inwebstudio.api.users.controller;
+package com.inwebstudio.api.usuarios.controller;
 
-import com.inwebstudio.api.users.dto.CreateUserRequest;
-import com.inwebstudio.api.users.dto.UpdateUserRequest;
-import com.inwebstudio.api.users.dto.UserResponse;
-import com.inwebstudio.api.users.service.UserService;
+import com.inwebstudio.api.usuarios.dto.CreateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UpdateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UsuarioResponse;
+import com.inwebstudio.api.usuarios.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,34 +17,34 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final UsuarioService userService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse create(@Valid @RequestBody CreateUserRequest request) {
+    public UsuarioResponse create(@Valid @RequestBody CreateUsuarioRequest request) {
 
         return userService.create(request);
 
     }
 
     @GetMapping
-    public List<UserResponse> findAll() {
+    public List<UsuarioResponse> findAll() {
 
         return userService.findAll();
 
     }
 
     @GetMapping("/{id}")
-    public UserResponse findById(@PathVariable UUID id) {
+    public UsuarioResponse findById(@PathVariable UUID id) {
 
         return userService.findById(id);
 
     }
 
     @PutMapping("/{id}")
-    public UserResponse update(
+    public UsuarioResponse update(
             @PathVariable UUID id,
-            @Valid @RequestBody UpdateUserRequest request) {
+            @Valid @RequestBody UpdateUsuarioRequest request) {
 
         return userService.update(id, request);
 

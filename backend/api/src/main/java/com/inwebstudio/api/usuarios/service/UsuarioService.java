@@ -1,72 +1,82 @@
-package com.inwebstudio.api.users.service;
+package com.inwebstudio.api.usuarios.service;
 
-import com.inwebstudio.api.users.dto.CreateUserRequest;
-import com.inwebstudio.api.users.dto.UpdateUserRequest;
-import com.inwebstudio.api.users.dto.UserResponse;
-import com.inwebstudio.api.users.entity.Usuario;
-import com.inwebstudio.api.users.mapper.UserMapper;
-import com.inwebstudio.api.users.repository.UserRepository;
+import com.inwebstudio.api.common.enums.Perfil;
+import com.inwebstudio.api.usuarios.dto.CreateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UpdateUsuarioRequest;
+import com.inwebstudio.api.usuarios.dto.UsuarioResponse;
+import com.inwebstudio.api.usuarios.entity.Usuario;
+import com.inwebstudio.api.usuarios.mapper.UsuarioMapper;
+import com.inwebstudio.api.usuarios.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UsuarioService {
 
-    private final UserRepository userRepository;
-    private final UserMapper userMapper;
+    private final UsuarioRepository usuarioRepository;
+    private final UsuarioMapper usuarioMappper;
 
-    public UserResponse create(CreateUserRequest request) {
+    public UsuarioResponse create(CreateUsuarioRequest request) {
 
-        if (userRepository.existsByEmail(request.getEmail())) {
+        if (usuarioRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("E-mail já cadastrado.");
         }
 
-        Usuario usuario = userMapper.toEntity(request);
+        Usuario usuario = usuarioMappper.toEntity(request);
 
-        Usuario savedUsuario = userRepository.save(usuario);
+        usuario.setPerfil(Perfil.CLIENTE);
+        usuario.setAtivo(false);
+        usuario.setEmail_verificado(false);
+        usuario.setCriado_em(LocalDateTime.now());
+        usuario.setAtualizado_em(LocalDateTime.now());
 
-        return userMapper.toResponse(savedUsuario);
+
+        Usuario savedUsuario = usuarioRepository.save(usuario);
+
+        return usuarioMappper.toResponse(savedUsuario);
     }
 
-    public List<UserResponse> findAll() {
+    public List<UsuarioResponse> findAll() {
 
-        return userRepository.findAll()
+        return usuarioRepository.findAll()
                 .stream()
-                .map(userMapper::toResponse)
+                .map(usuarioMappper::toResponse)
                 .toList();
     }
 
-    public UserResponse findById(UUID id) {
+    public UsuarioResponse findById(UUID id) {
 
-        Usuario usuario = userRepository.findById(id)
+        Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        return userMapper.toResponse(usuario);
+        return usuarioMappper.toResponse(usuario);
     }
 
-    public UserResponse update(UUID id, UpdateUserRequest request) {
+    public UsuarioResponse update(UUID id, UpdateUsuarioRequest request) {
 
-        Usuario usuario = userRepository.findById(id)
+        Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        usuario.setName(request.getName());
+        usuario.setNome(request.getNome());
         usuario.setEmail(request.getEmail());
+        usuario.setAtualizado_em(LocalDateTime.now());
 
-        Usuario updatedUsuario = userRepository.save(usuario);
+        Usuario updatedUsuario = usuarioRepository.save(usuario);
 
-        return userMapper.toResponse(updatedUsuario);
+        return usuarioMappper.toResponse(updatedUsuario);
     }
 
     public void delete(UUID id) {
 
-        Usuario usuario = userRepository.findById(id)
+        Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        userRepository.delete(usuario);
+        usuarioRepository.delete(usuario);
     }
 
 }
