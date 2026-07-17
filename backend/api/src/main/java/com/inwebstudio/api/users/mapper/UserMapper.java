@@ -7,7 +7,7 @@ import com.inwebstudio.api.users.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserMapper {
+public class  UserMapper {
 
     public User toEntity(CreateUserRequest request) {
 
