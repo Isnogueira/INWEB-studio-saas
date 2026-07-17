@@ -3,7 +3,7 @@ package com.inwebstudio.api.users.service;
 import com.inwebstudio.api.users.dto.CreateUserRequest;
 import com.inwebstudio.api.users.dto.UpdateUserRequest;
 import com.inwebstudio.api.users.dto.UserResponse;
-import com.inwebstudio.api.users.entity.User;
+import com.inwebstudio.api.users.entity.Usuario;
 import com.inwebstudio.api.users.mapper.UserMapper;
 import com.inwebstudio.api.users.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,11 +25,11 @@ public class UserService {
             throw new RuntimeException("E-mail já cadastrado.");
         }
 
-        User user = userMapper.toEntity(request);
+        Usuario usuario = userMapper.toEntity(request);
 
-        User savedUser = userRepository.save(user);
+        Usuario savedUsuario = userRepository.save(usuario);
 
-        return userMapper.toResponse(savedUser);
+        return userMapper.toResponse(savedUsuario);
     }
 
     public List<UserResponse> findAll() {
@@ -42,31 +42,31 @@ public class UserService {
 
     public UserResponse findById(UUID id) {
 
-        User user = userRepository.findById(id)
+        Usuario usuario = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        return userMapper.toResponse(user);
+        return userMapper.toResponse(usuario);
     }
 
     public UserResponse update(UUID id, UpdateUserRequest request) {
 
-        User user = userRepository.findById(id)
+        Usuario usuario = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        user.setName(request.getName());
-        user.setEmail(request.getEmail());
+        usuario.setName(request.getName());
+        usuario.setEmail(request.getEmail());
 
-        User updatedUser = userRepository.save(user);
+        Usuario updatedUsuario = userRepository.save(usuario);
 
-        return userMapper.toResponse(updatedUser);
+        return userMapper.toResponse(updatedUsuario);
     }
 
     public void delete(UUID id) {
 
-        User user = userRepository.findById(id)
+        Usuario usuario = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-        userRepository.delete(user);
+        userRepository.delete(usuario);
     }
 
 }
