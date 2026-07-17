@@ -1,6 +1,8 @@
 package com.inwebstudio.api.usuarios.service;
 
 import com.inwebstudio.api.common.enums.Perfil;
+import com.inwebstudio.api.exception.DuplicateResourceException;
+import com.inwebstudio.api.exception.ResourceNotFoundException;
 import com.inwebstudio.api.usuarios.dto.CreateUsuarioRequest;
 import com.inwebstudio.api.usuarios.dto.UpdateUsuarioRequest;
 import com.inwebstudio.api.usuarios.dto.UsuarioResponse;
@@ -24,7 +26,7 @@ public class UsuarioService {
     public UsuarioResponse create(CreateUsuarioRequest request) {
 
         if (usuarioRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("E-mail já cadastrado.");
+            throw new DuplicateResourceException("E-mail já cadastrado.");
         }
 
         Usuario usuario = usuarioMappper.toEntity(request);
@@ -52,7 +54,7 @@ public class UsuarioService {
     public UsuarioResponse findById(UUID id) {
 
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
 
         return usuarioMappper.toResponse(usuario);
     }
@@ -60,7 +62,7 @@ public class UsuarioService {
     public UsuarioResponse update(UUID id, UpdateUsuarioRequest request) {
 
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
 
         usuario.setNome(request.getNome());
         usuario.setEmail(request.getEmail());
@@ -74,7 +76,7 @@ public class UsuarioService {
     public void delete(UUID id) {
 
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
 
         usuarioRepository.delete(usuario);
     }
