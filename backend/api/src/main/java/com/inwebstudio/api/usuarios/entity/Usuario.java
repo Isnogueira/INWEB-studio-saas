@@ -3,8 +3,14 @@ package com.inwebstudio.api.usuarios.entity;
 import com.inwebstudio.api.common.enums.Perfil;
 import jakarta.persistence.*;
 import lombok.*;
+import org.jspecify.annotations.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -43,5 +49,25 @@ public class Usuario {
     private LocalDateTime criado_em;
 
     private LocalDateTime atualizado_em;
+
+    @Override
+    @NonNull
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of( new SimpleGrantedAuthority("ROLE_" + perfil.name()));
+    }
+
+    @Override
+    public @Nullable String getPassword() {
+        return senha;
+    }
+
+    @Override
+    @NonNull
+    public String getUsername() { return email; }
+
+    @Override
+    public boolean isEnabled() {
+        return Boolean.TRUE.equals(ativo);
+    }
 
 }
