@@ -97,7 +97,7 @@ O INWEB Studio busca centralizar essas atividades em uma única plataforma.
 - [x] Docker
 - [x] PostgreSQL
 - [x] Flyway
-- [ ] Autenticação JWT
+- [x] Autenticação JWT
 - [ ] CRUD de Usuários
 - [ ] CRUD de Clientes
 - [ ] CRUD de Projetos
