@@ -10,6 +10,7 @@ import com.inwebstudio.api.usuarios.entity.Usuario;
 import com.inwebstudio.api.usuarios.mapper.UsuarioMapper;
 import com.inwebstudio.api.usuarios.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final UsuarioMapper usuarioMappper;
+    private final PasswordEncoder passwordEncoder;
 
     public UsuarioResponse create(CreateUsuarioRequest request) {
 
@@ -31,9 +33,10 @@ public class UsuarioService {
 
         Usuario usuario = usuarioMappper.toEntity(request);
 
+        usuario.setSenha(passwordEncoder.encode(request.getSenha()));
         usuario.setPerfil(Perfil.CLIENTE);
-        usuario.setAtivo(false);
-        usuario.setEmail_verificado(false);
+        usuario.setAtivo(true);
+        usuario.setEmail_verificado(true);
         usuario.setCriado_em(LocalDateTime.now());
         usuario.setAtualizado_em(LocalDateTime.now());
 
