@@ -4,9 +4,11 @@ import com.inwebstudio.api.usuarios.dto.CreateUsuarioRequest;
 import com.inwebstudio.api.usuarios.dto.UpdateUsuarioRequest;
 import com.inwebstudio.api.usuarios.dto.UsuarioResponse;
 import com.inwebstudio.api.usuarios.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class UsuarioController {
 
     private final UsuarioService userService;

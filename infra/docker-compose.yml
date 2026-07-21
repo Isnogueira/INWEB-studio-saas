@@ -27,6 +27,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     networks:
@@ -56,3 +58,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  postgres_data: {}

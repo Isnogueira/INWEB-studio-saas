@@ -1,5 +1,6 @@
 package com.inwebstudio.api.auth.service;
 
+import com.inwebstudio.api.auth.dto.AuthUserResponse;
 import com.inwebstudio.api.auth.dto.LoginRequest;
 import com.inwebstudio.api.auth.dto.LoginResponse;
 import com.inwebstudio.api.usuarios.entity.Usuario;
@@ -9,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -49,5 +51,6 @@ public class AuthService {
                 user.getPerfil()
         );
     }
+
 
 }

@@ -88,7 +88,7 @@ public class JWTService {
     }
 
     // extrai o email para validação
-    private String extractUsername(String token) {
+    public String extractUsername(String token) {
         return extractClaim(
                 token,
                 Claims::getSubject
