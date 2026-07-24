@@ -23,33 +23,40 @@ public class UsuarioController {
     private final UsuarioService userService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioResponse create(@Valid @RequestBody CreateUsuarioRequest request) {
+    public ResponseEntity<UsuarioResponse> create(@Valid @RequestBody CreateUsuarioRequest request) {
 
-        return userService.create(request);
+      UsuarioResponse response =  userService.create(request);
+
+        return ResponseEntity.ok(response) ;
 
     }
 
     @GetMapping
-    public List<UsuarioResponse> findAll() {
+    public ResponseEntity<List<UsuarioResponse>> findAll() {
 
-        return userService.findAll();
+        List<UsuarioResponse> responseList = userService.findAll();
+
+        return ResponseEntity.ok(responseList);
 
     }
 
     @GetMapping("/{id}")
-    public UsuarioResponse findById(@PathVariable UUID id) {
+    public ResponseEntity<UsuarioResponse> findById(@PathVariable UUID id) {
 
-        return userService.findById(id);
+        UsuarioResponse response = userService.findById(id);
+
+        return ResponseEntity.ok(response);
 
     }
 
     @PutMapping("/{id}")
-    public UsuarioResponse update(
+    public ResponseEntity<UsuarioResponse> update(
             @PathVariable UUID id,
             @Valid @RequestBody UpdateUsuarioRequest request) {
 
-        return userService.update(id, request);
+        UsuarioResponse response = userService.update(id, request);
+
+        return ResponseEntity.ok(response);
 
     }
 
