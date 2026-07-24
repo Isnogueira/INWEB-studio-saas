@@ -1,5 +1,9 @@
 package com.inwebstudio.api.auth.service;
 
+import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.inwebstudio.api.exception.JwtCreationException;
+import com.inwebstudio.api.exception.JwtVerificationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -36,19 +40,24 @@ public class JWTService {
     }
     // Esse método cria um JWT. Gera o token
     public String generateToken(UserDetails user) {
-        //Começa a montar o token.
-        return Jwts.builder()
-                //email de login
-                .subject(user.getUsername())
-                // data de login
-                .issuedAt(new Date())
-                // expiração o acesso
-                .expiration(new Date(System.currentTimeMillis() + expiration))
-                //Assina o token.
-                //Sem isso qualquer pessoa poderia modificar o conteúdo.
-                .signWith(getSigningKey())
-                // Transfoma tudo em uma string
-                .compact();
+        try{
+            //Começa a montar o token.
+            return Jwts.builder()
+                    //email de login
+                    .subject(user.getUsername())
+                    // data de login
+                    .issuedAt(new Date())
+                    // expiração o acesso
+                    .expiration(new Date(System.currentTimeMillis() + expiration))
+                    //Assina o token.
+                    //Sem isso qualquer pessoa poderia modificar o conteúdo.
+                    .signWith(getSigningKey())
+                    // Transfoma tudo em uma string
+                    .compact();
+        } catch (JWTCreationException exception) {
+            throw new JwtCreationException("Erro ao gerar o token");
+        }
+
     }
 
     //verifica a assinatura, lê o payload e retorna um obj json com email, data exp e data de criação
@@ -99,11 +108,15 @@ public class JWTService {
     public boolean isTokenValid(
             String token,
             UserDetails user) {
+        try {
+            String username = extractUsername(token);
 
-        String username = extractUsername(token);
+            return username.equals(user.getUsername())
+                    && !isTokenExpired(token);
+        }catch (JWTVerificationException exception){
+            throw new JwtVerificationException("Erro na verificação do token");
+        }
 
-        return username.equals(user.getUsername())
-                && !isTokenExpired(token);
     }
 
 }
