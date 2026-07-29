@@ -47,9 +47,16 @@ services:
       - app-network
   
   frontend:
-    build: ../frontend/inwebstudio-web
+    build:  
+      context: ../frontend/inwebstudio-web
+      dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"
+      - "5173:5173"
+    volumes:
+        #Tudo que você editar no VS Code aparece imediatamente dentro do container.
+      - ../frontend/inwebstudio-web:/app
+      #Evita que o node_modules do host sobrescreva o node_modules do container.
+      - /app/node_modules
     depends_on:
       - backend
     networks:
