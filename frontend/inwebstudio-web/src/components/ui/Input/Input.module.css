@@ -1,0 +1,85 @@
+.container{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+
+.inputWrapper{
+
+    display:flex;
+    
+    align-items:center;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:8px;
+
+    padding:0 12px;
+
+    transition:.2s;
+}
+
+.label{
+    font-size:14px;
+    font-weight:600;
+}
+
+.input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:12px 0;
+
+    background:transparent;
+}
+
+
+.inputWrapper:focus-within{
+
+    border-color:#2563EB;
+
+}
+
+.fullWidth{
+
+    width:100%;
+
+}
+
+.error{
+
+    border-color:red;
+
+}
+
+.errorMessage{
+
+    color:red;
+
+    font-size:12px;
+
+}
+
+.helperText{
+
+    color:#6B7280;
+
+    font-size:12px;
+
+}
+
+.icon{
+
+    display:flex;
+
+    align-items:center;
+
+    color:#6B7280;
+
+}
+
