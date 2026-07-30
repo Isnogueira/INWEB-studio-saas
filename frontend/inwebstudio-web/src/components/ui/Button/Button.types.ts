@@ -7,7 +7,7 @@ export interface ButtonProps
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   disabled: boolean;
-  leftIcon: boolean;
-  rightIcon: boolean;
+  lefticon: boolean;
+  righticon: boolean;
   
 }
