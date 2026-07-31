@@ -1,5 +1,5 @@
 
-import type { ButtonProps } from "./Button.types";
+import type { ButtonProps } from "../../../types/Button.types";
 import styles from "./Button.module.css";
 
 export default function Button({variant="primary", size="md", fullWidth=false, isLoading=false, disabled=false, children, ...rest}: ButtonProps){

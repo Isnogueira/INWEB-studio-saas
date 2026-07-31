@@ -73,13 +73,20 @@
 
 }
 
-.icon{
-
-    display:flex;
-
-    align-items:center;
-
-    color:#6B7280;
-
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.icon button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+}
