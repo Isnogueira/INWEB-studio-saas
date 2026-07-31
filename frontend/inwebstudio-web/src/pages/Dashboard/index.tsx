@@ -1,7 +1,7 @@
 import Input from "@/components/ui/Input";
 import PasswordInput from "@/components/ui/PasswordInput";
 import { useAuth } from "@/contexts/UseAuth";
-import {Eye, Search } from "lucide-react";
+import {Search } from "lucide-react";
 
 
 export default function Dashboard() {

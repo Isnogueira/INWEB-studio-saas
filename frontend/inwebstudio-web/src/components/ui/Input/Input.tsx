@@ -42,9 +42,9 @@ export default function Input({
         <div className={styles.inputWrapper}>
 
             {leftIcon && (
-                <span className={styles.icon}>
+                <div className={styles.icon}>
                     {leftIcon}
-                </span>
+                </div>
             )}
 
             <input
@@ -54,14 +54,13 @@ export default function Input({
             />
 
             {rightIcon && (
-                <span className={styles.icon}>
+                <div className={styles.icon}>
                     {rightIcon}
-                </span>
+                </div>
             )}
 
         </div>
-
-      
+        
             {error ? (
                 <span className={styles.errorMessage}>
                 {error}
