@@ -1,5 +1,5 @@
 import type { InputProps } from "./Input.types";
-import styles from "./Input.module.css";
+import styles from "@/styles/shared/field.module.css";
 import { useId } from "react";
 
 export default function Input({
