@@ -1,7 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "danger";
   isLoading?: boolean;
   size?: "sm" | "md" | "lg";
@@ -9,5 +8,4 @@ export interface ButtonProps
   disabled: boolean;
   leftIcon: boolean;
   rightIcon: boolean;
-  
 }

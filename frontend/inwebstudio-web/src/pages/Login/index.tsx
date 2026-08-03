@@ -1,5 +1,6 @@
 import Alert from "@/components/ui/Alert/Alert";
 import Button from "@/components/ui/Button/Button";
+import Card from "@/components/ui/Card/Card";
 import Input from "@/components/ui/Input/Input";
 import PasswordInput from "@/components/ui/PasswordInput/PasswordInput";
 import { useAuth } from "@/contexts/UseAuth";
@@ -64,38 +65,43 @@ const {
     <h1>INWEB Studio</h1>
     <h2>Login</h2>
     <div>
-       {loginError && (
-        <Alert
-            variant="error"
-            title="Falha na autenticação"
-        >
-            {loginError}
-        </Alert>
-      )}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type="email"
-        
-          label="E-mail"
+      <div>
+        {loginError && (
+                <Alert
+                    variant="error"
+                    title="Falha na autenticação"
+                >
+                    {loginError}
+                </Alert>
+              )
+        }
+      </div>
+        <Card>
+              <form onSubmit={handleSubmit(onSubmit)}>
+              <Input
+                type="email"
+              
+                label="E-mail"
 
-          {...register("email")}
+                {...register("email")}
 
-          error={errors.email?.message}
-        />
+                error={errors.email?.message}
+              />
 
-        <PasswordInput
+              <PasswordInput
 
-          label="Senha"
+                label="Senha"
 
-          {...register("senha")}
+                {...register("senha")}
 
-          error={errors.senha?.message}
+                error={errors.senha?.message}
 
-        />
-        <Button type="submit" disabled={loading} leftIcon={false} rightIcon={false}>
-          {loading ? "Entrando..." : "Entrar"}
-        </Button>
-      </form>
+              />
+              <Button type="submit" disabled={loading} leftIcon={false} rightIcon={false}>
+                {loading ? "Entrando..." : "Entrar"}
+              </Button>
+            </form>
+        </Card>
       </div>
     </>
   );
