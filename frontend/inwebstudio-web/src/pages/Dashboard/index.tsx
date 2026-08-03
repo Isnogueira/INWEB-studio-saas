@@ -1,5 +1,6 @@
 import Input from "@/components/ui/Input";
 import PasswordInput from "@/components/ui/PasswordInput";
+import Select from "@/components/ui/Select";
 import TextArea from "@/components/ui/TextArea";
 import { useAuth } from "@/contexts/UseAuth";
 import {Search } from "lucide-react";
@@ -18,6 +19,26 @@ export default function Dashboard() {
       <br />
       <br />
       <TextArea label="Mensagem" placeholder="Mensagem aqui" ></TextArea>
+      <br />
+      <br />
+      <Select
+          label="Perfil"
+          placeholder="Selecione um perfil"
+          options={[
+              {
+                  label: "Administrador",
+                  value: "ADMIN"
+              },
+              {
+                  label: "Cliente",
+                  value: "CLIENTE"
+              },
+              {
+                  label: "Colaborador",
+                  value: "COLLABORADOR"
+              }
+          ]}
+      />
     </div>
   );
 }
