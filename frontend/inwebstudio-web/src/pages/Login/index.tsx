@@ -1,13 +1,19 @@
+import Alert from "@/components/ui/Alert/Alert";
 import Button from "@/components/ui/Button/Button";
 import Input from "@/components/ui/Input/Input";
 import PasswordInput from "@/components/ui/PasswordInput/PasswordInput";
 import { useAuth } from "@/contexts/UseAuth";
 import { loginSchema, type LoginFormData } from "@/schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 
 export default function Login() {
+
+const [loginError, setLoginError] = useState("");
+const [loading, setLoading] = useState(false);
 
 const {
 
@@ -24,15 +30,49 @@ const {
 
 
   async function onSubmit(data: LoginFormData) {
-    await login(data.email, data.senha);
+    setLoginError("");
+
+    try {
+
+      setLoading(true);
+
+      await login(data.email, data.senha);
+
+    } catch (error) {
+
+        if (axios.isAxiosError(error)) {
+
+            setLoginError(
+                error.response?.data?.message ?? "Erro ao realizar login."
+            );
+
+        } else {
+
+            setLoginError("Erro inesperado.");
+
+        }
+
+    } finally {
+
+        setLoading(false);
+
+    } 
   }
 
   return (
     <>
     <h1>INWEB Studio</h1>
     <h2>Login</h2>
-    <div style={{ width: "50%", padding: "20px", border: "1px solid #ccc", borderRadius: "5px" }}>
-      <div style={{ marginBottom: "10px" }}>
+    <div>
+       {loginError && (
+        <Alert
+            variant="error"
+            title="Falha na autenticação"
+        >
+            {loginError}
+        </Alert>
+      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="email"
         
@@ -42,8 +82,7 @@ const {
 
           error={errors.email?.message}
         />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
+
         <PasswordInput
 
           label="Senha"
@@ -53,14 +92,12 @@ const {
           error={errors.senha?.message}
 
         />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
-        <Button onClick={handleSubmit(onSubmit)} disabled={false} lefticon={false} righticon={false}>
-          Entrar
+        <Button type="submit" disabled={loading} leftIcon={false} rightIcon={false}>
+          {loading ? "Entrando..." : "Entrar"}
         </Button>
+      </form>
       </div>
-    </div>
-    
     </>
   );
 }
+
