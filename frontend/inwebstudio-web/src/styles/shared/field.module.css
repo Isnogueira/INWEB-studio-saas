@@ -51,6 +51,24 @@
 
 }
 
+.sm{
+
+    height:32px;
+
+}
+
+.md{
+
+    height:40px;
+
+}
+
+.lg{
+
+    height:48px;
+
+}
+
 .error{
 
     border-color:red;

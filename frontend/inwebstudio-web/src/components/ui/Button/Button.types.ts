@@ -1,13 +1,11 @@
 import type { ButtonHTMLAttributes } from "react";
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "danger";
   isLoading?: boolean;
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
   disabled: boolean;
-  lefticon: boolean;
-  righticon: boolean;
-  
+  leftIcon: boolean;
+  rightIcon: boolean;
 }
