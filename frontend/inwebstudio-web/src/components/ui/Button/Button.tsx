@@ -1,4 +1,5 @@
 
+import Spinner from "../Spinner";
 import styles from "./Button.module.css";
 import type { ButtonProps } from "./Button.types";
 
@@ -15,7 +16,7 @@ export default function Button({variant="primary", size="md", fullWidth=false, i
 
         return<>
            <button  className={classes} disabled={isLoading || disabled} {...rest}>
-            {isLoading ? "Carregando..." : children}
+            {isLoading ? (<Spinner size="sm" />) : (children)}
            </button>
   
         </>;
