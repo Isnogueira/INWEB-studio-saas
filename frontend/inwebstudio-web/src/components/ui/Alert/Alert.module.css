@@ -1,44 +1,30 @@
 .alert{
-     padding:16px;
-
-    border-radius:8px;
-
+    padding:var(--space-4);
+    border-radius:var(--radius-md);
     display:flex;
-
     flex-direction:column;
-
-    gap:8px;
+    gap:var(--spacing-2);
 }
 
 
 .success{
 
-    background:#DCFCE7;
-
-    color:#166534;
+    background:var(--color-success-foreground);
+    color:var(--color-success);
 
 }
 
 .error{
 
-    background:#FEE2E2;
-
-    color:#991B1B;
+    background:var(--color-error-foreground)    ;
+    color:var(--color-error) ;
 
 }
 
 .warning{
 
-    background:#FEF3C7;
-
-    color:#92400E;
-
-}
-
-.info{
-
-    background:#DBEAFE;
-
-    color:#1D4ED8;
+    background:var(--color-warning-foreground);
+    color:var(--color-warning);
 
 }
+

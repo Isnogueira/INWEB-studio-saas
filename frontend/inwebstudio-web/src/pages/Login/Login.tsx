@@ -97,7 +97,12 @@ const {
                 error={errors.senha?.message}
 
               />
-              <Button type="submit" disabled={loading} leftIcon={false} rightIcon={false}>
+              <Button type="submit" 
+                variant="primary"
+                disabled={loading} 
+                leftIcon={false}
+                rightIcon={false}
+                >
                 {loading ? "Entrando..." : "Entrar"}
               </Button>
             </form>

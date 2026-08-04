@@ -1,0 +1,52 @@
+:root{
+
+    /* Brand */
+    --color-primary:#101B37;
+    --color-secondary:#3C3F41;
+    --color-accent:#E31378;
+    --color-wine:#761E61;
+    --color-brand-blue:#4E4298;
+
+    /* Feedback */
+    --color-success:#16A34A;
+    --color-success-foreground:#DCFCE7;
+    
+    --color-warning:#F59E0B;
+    --color-warning-foreground: #FEF3C7;
+    
+    --color-error:#DC2626;
+    --color-error-foreground:#FEE2E2;
+
+    /* Surface */
+    --color-background:#F8FAFC;
+    --color-surface:#FFFFFF;
+    --color-border:#E2E8F0;
+
+    /* Text */
+    --color-text:#1F2937;
+    --color-text-secondary:#7A7A7A;
+    --color-text-tertiary:#A1A1AA;
+    --color-text-inverse:#FFFFFF;
+
+    /* Spacing */
+    --space-1:4px;
+    --space-2:8px;
+    --space-3:12px;
+    --space-4:16px;
+    --space-5:24px;
+    --space-6:32px;
+    --space-7:48px;
+    --space-8:64px;
+
+    /* Radius */
+    --radius-sm:4px;
+    --radius-md:8px;
+    --radius-lg:12px;
+    --radius-xl:16px;
+
+    /* Shadow */
+    --shadow-sm:0 2px 6px rgba(0,0,0,.06);
+    --shadow-md:0 4px 12px rgba(0,0,0,.08);
+    --shadow-lg:0 12px 32px rgba(0,0,0,.12);
+
+}

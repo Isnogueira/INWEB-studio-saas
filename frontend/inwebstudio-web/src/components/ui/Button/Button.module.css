@@ -2,33 +2,26 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-
     font-weight: 600;
-
     transition: .2s;
 }
 
 .button:hover{
-    background-color: gray;
-
+    background-color: var(--color-brand-blue);
+    color: var(--color-text-inverse);
 }
-
 
 .primary {
-    background-color: blue;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    border: 1px solid var(--color-border);
  }
 .secondary { 
-    background-color: green;
-    color: white;
-}
-.danger { 
-    background-color: orange;
-    color: black;
+    background-color: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border: 1px solid var(--color-border);
 }
 
 .sm {
