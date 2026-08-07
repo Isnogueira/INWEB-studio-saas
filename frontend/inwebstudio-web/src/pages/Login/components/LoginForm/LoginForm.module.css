@@ -1,0 +1,19 @@
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin:200px
+}
+
+
+.loginForm h2{
+    font-weight:bold;
+} 
+
+.loginForm h2, p{
+    text-align: center;
+}
+
+.loginFormButtonEntrar, .loginFormButtonGoogle{
+    padding:var(--space-6) 0 var(--space-6) 0
+}

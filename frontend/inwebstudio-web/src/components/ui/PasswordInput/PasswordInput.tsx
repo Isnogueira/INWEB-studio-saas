@@ -20,7 +20,7 @@ export default function PasswordInput({
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                 >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
             }
         />
