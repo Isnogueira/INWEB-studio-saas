@@ -1,0 +1,36 @@
+
+body{
+    font-family:var(--font-family);
+    color:var(--color-text);
+    background-color:var(--color-background);
+}
+
+button,
+input,
+textarea,
+select{
+
+    font:inherit;
+
+}
+
+a{
+   color: var(--color-info);
+   text-decoration: none; 
+   cursor: pointer
+}
+
+a:hover{
+    color: var(--brand-accent);
+}
+
+img{}       
+
+button{
+}
+
+input{}
+
+selection{}
+
+scrollbar{}

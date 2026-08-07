@@ -4,9 +4,9 @@
 
     border-radius:50%;
 
-    border:3px solid #E5E7EB;
+    border:3px solid var(--color-border);
 
-    border-top-color:#2563EB;
+    border-top-color:var(--color-primary);
 
     animation:spin .8s linear infinite;
 

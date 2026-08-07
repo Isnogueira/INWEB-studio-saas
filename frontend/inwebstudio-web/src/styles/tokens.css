@@ -1,0 +1,193 @@
+:root {
+
+    /* ==========================================================
+       BRAND
+       Identidade visual do INWEB Studio
+    ========================================================== */
+
+    --brand-primary: #101B37;
+    --brand-secondary: #3C3F41;
+    --brand-accent: #E31378;
+    --brand-wine: #761E61;
+    --brand-blue: #4E4298;
+
+    /* ==========================================================
+       SEMANTIC COLORS
+       Cores utilizadas pelos componentes
+    ========================================================== */
+
+    /* Primary */
+    --color-primary: var(--brand-primary);
+    --color-primary-hover: #0C1530;
+    --color-primary-active: #070E23;
+
+    /* Accent */
+    --color-accent: var(--brand-accent);
+    --color-accent-hover: #C40F68;
+    --color-accent-active: #A40C56;
+
+    /* Secondary */
+    --color-secondary: var(--brand-secondary);
+
+    /* ==========================================================
+       NEUTRAL SCALE
+    ========================================================== */
+
+    --color-neutral-900: #111827;
+    --color-neutral-700: #374151;
+    --color-neutral-500: #6B7280;
+    --color-neutral-300: #D1D5DB;
+    --color-neutral-200: #E5E7EB;
+    --color-neutral-100: #F3F4F6;
+    --color-neutral-50: #FAFAFA;
+    --color-white: #FFFFFF;
+
+    /* ==========================================================
+       SURFACE
+    ========================================================== */
+
+    --color-background: #F8FAFC;
+
+    --color-surface: #FFFFFF;
+
+    --color-surface-secondary: #F9FAFB;
+
+    --color-surface-hover: #F3F4F6;
+
+    --color-border: #E2E8F0;
+
+    --color-divider: #E5E7EB;
+
+    /* ==========================================================
+       TEXT
+    ========================================================== */
+
+    --color-text: #111827;
+
+    --color-text-secondary: #7A7A7A;
+
+    --color-text-muted: #A1A1AA;
+
+    --color-text-placeholder: #9CA3AF;
+
+    --color-text-inverse: #FFFFFF;
+
+    --color-text-on-accent: #FFFFFF;
+
+    /* ==========================================================
+       FEEDBACK
+    ========================================================== */
+
+    /* Success */
+
+    --color-success: #16A34A;
+    --color-success-bg: #DCFCE7;
+    --color-success-border: #86EFAC;
+    --color-success-text: #166534;
+
+    /* Warning */
+
+    --color-warning: #F59E0B;
+    --color-warning-bg: #FEF3C7;
+    --color-warning-border: #FCD34D;
+    --color-warning-text: #92400E;
+
+    /* Error */
+
+    --color-error: #DC2626;
+    --color-error-bg: #FEE2E2;
+    --color-error-border: #FCA5A5;
+    --color-error-text: #991B1B;
+
+    /* Info */
+
+    --color-info: var(--brand-blue);
+    --color-info-bg: #EEF2FF;
+    --color-info-border: #C7D2FE;
+    --color-info-text: #3730A3;
+
+    /* ==========================================================
+       SPACING
+       Escala baseada em múltiplos de 4px
+    ========================================================== */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 64px;
+    --space-11: 80px;
+    --space-12: 96px;
+    --space-13: 120px;
+
+    /* ==========================================================
+       BORDER RADIUS
+    ========================================================== */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* ==========================================================
+       SHADOWS
+    ========================================================== */
+
+    --shadow-xs: 0 1px 2px rgba(16, 27, 55, 0.05);
+
+    --shadow-sm: 0 2px 4px rgba(16, 27, 55, 0.06);
+
+    --shadow-md: 0 4px 12px rgba(16, 27, 55, 0.08);
+
+    --shadow-lg: 0 12px 24px rgba(16, 27, 55, 0.10);
+
+    --shadow-xl: 0 24px 48px rgba(16, 27, 55, 0.14);
+
+    /* ==========================================================
+       LAYOUT
+    ========================================================== */
+
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1440px;
+
+    --sidebar-width: 280px;
+
+    --header-height: 72px;
+
+    --login-card-width: 480px;
+
+    /* ==========================================================
+       MOTION
+    ========================================================== */
+
+    --transition-fast: .15s ease;
+
+    --transition-normal: .25s ease;
+
+    --transition-slow: .40s ease;
+
+    /* ==========================================================
+       Z-INDEX
+    ========================================================== */
+
+    --z-dropdown: 100;
+
+    --z-sticky: 200;
+
+    --z-modal: 300;
+
+    --z-toast: 400;
+
+    --z-tooltip: 500;
+
+}

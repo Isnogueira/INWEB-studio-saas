@@ -1,0 +1,63 @@
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin:200px
+}
+
+.loginForm{
+    padding:var(--space-9);
+
+}
+
+.loginForm h2{
+    font-weight:bold;
+}
+
+.loginForm p {
+    padding-bottom:var(--space-6);
+
+}
+
+.loginForm h2, p{
+    text-align: center;
+}
+
+.loginFormButtonEntrar, .loginFormButtonGoogle{
+    padding:var(--space-6) 0 var(--space-6) 0
+}
+
+.loginFormOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+}
+
+.loginForgotPassword {
+    text-decoration: none;
+    transition: var(--transition-fast);
+
+}
+
+.loginFormDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin: var(--space-5) 0; /* Espaço acima e abaixo do divisor */
+}
+
+.loginFormDivider::before,
+.loginFormDivider::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--color-divider);
+}
+
+.loginFormDivider span {
+  padding: 0 var(--space-4);
+  font-weight: 500;
+}

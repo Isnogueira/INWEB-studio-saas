@@ -1,47 +1,37 @@
 .container{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    margin:0 0 var(--space-6) 0;  
 }
 
 
 .inputWrapper{
-
     display:flex;
-    
     align-items:center;
-
-    border:1px solid #D1D5DB;
-
-    border-radius:8px;
-
-    padding:0 12px;
-
+    border:2px solid var(--color-border);
+    border-radius:var(--radius-md);
+    padding:0 var(--space-3);
     transition:.2s;
 }
 
 .label{
     font-size:14px;
     font-weight:600;
+    color:var(--color-text);
 }
 
 .input{
-
     flex:1;
-
     border:none;
-
     outline:none;
-
-    padding:12px 0;
-
+    padding:var(--space-3);
     background:transparent;
 }
 
 
 .inputWrapper:focus-within{
 
-    border-color:#2563EB;
+    border-color:var(--color-brand-blue);
 
 }
 
@@ -71,13 +61,13 @@
 
 .error{
 
-    border-color:red;
+    border-color:var(--color-error);
 
 }
 
 .errorMessage{
 
-    color:red;
+    color:var(--color-error);
 
     font-size:12px;
 
@@ -85,7 +75,7 @@
 
 .helperText{
 
-    color:#6B7280;
+    color:var(--color-text-tertiary);
 
     font-size:12px;
 
@@ -98,10 +88,6 @@
 }
 
 .icon button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background: transparent;
     border: none;
     cursor: pointer;

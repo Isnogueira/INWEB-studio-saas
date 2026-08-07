@@ -1,0 +1,36 @@
+.heroSectionContainer{
+    display: flex;
+    flex-direction: column;
+    padding:200px 200px 200px 300px;
+    background-image: url('src/assets/images/hero-section-background.png');
+    background-size: cover;
+    background-position: left center;
+
+}
+
+.heroSectionContent{
+    width: 93%;
+    
+}
+
+.heroSectionLogo{
+    padding-bottom: var(--space-8);
+}
+
+.heroSectionContent h1{
+    color: var(--color-text-inverse);
+    padding-bottom: var(--space-4);
+}
+
+.heroSectionContent p{
+    color: var(--color-neutral-300);
+    font-weight: 100;
+    font-size: 1.25rem;
+    text-align: left; 
+
+    
+}
+
+.heroSectionContent span{
+    color: var(--color-accent);
+}
