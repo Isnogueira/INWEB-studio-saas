@@ -1,6 +1,6 @@
-import type { FieldProps } from "@/types/Field.types";
+import type { InputFieldProps } from "@/types/InputField.types";
 import type { InputHTMLAttributes } from "react";
 
 export interface InputProps
-    extends FieldProps,
+    extends InputFieldProps,
     InputHTMLAttributes<HTMLInputElement> {}

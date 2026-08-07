@@ -15,8 +15,13 @@ select{
 }
 
 a{
-   color:var(--color-brand-blue);
+   color: var(--color-info);
    text-decoration: none; 
+   cursor: pointer
+}
+
+a:hover{
+    color: var(--brand-accent);
 }
 
 img{}       

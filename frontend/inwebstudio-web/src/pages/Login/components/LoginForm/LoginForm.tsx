@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import styles from "./LoginForm.module.css";
 import { LockKeyholeIcon, Mail } from "lucide-react";
 import GoogleIcon from "@/assets/images/google.svg?react";
+import Checkbox from "@/components/ui/Checkbox";
 
 export default function LoginForm() {
 
@@ -110,7 +111,16 @@ export default function LoginForm() {
                         error={errors.senha?.message}
 
                     />
-                    <p><a href="/">Esqueci minha Senha</a></p>
+                   <div className={styles.loginFormOptions}>
+
+                        <Checkbox label="Lembrar de mim" />
+            
+                        <a className={styles.loginForgotPassword}>
+                            Esqueci minha senha
+                        </a>
+
+                    </div>
+
                     <div className={styles.loginFormButtonEntrar}>
                         <Button type="submit"
                             variant="accent"
@@ -133,7 +143,7 @@ export default function LoginForm() {
                     </Button>
                     </div>
                 </form>
-                <p>Não tem conta? <a href="/">Cadastre-se aqui</a></p>
+                <p>Não tem conta? <a>Cadastre-se aqui</a></p>
             </Card>
         </div>
      </>

@@ -17,3 +17,17 @@
 .loginFormButtonEntrar, .loginFormButtonGoogle{
     padding:var(--space-6) 0 var(--space-6) 0
 }
+
+.loginFormOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+}
+
+.loginForgotPassword {
+    text-decoration: none;
+    transition: var(--transition-fast);
+
+}
