@@ -86,28 +86,21 @@ export default function LoginForm() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type="email"
-                    
                         label="E-mail"
-
+                        placeholder="seu@email.com"
                         fullWidth
-
                         leftIcon={<Mail size={20} />}
-
                         {...register("email")}
-
                         error={errors.email?.message}
                     />
 
                     <PasswordInput
 
                         label="Senha"
-
                         {...register("senha")}
-
+                        placeholder="sua senha"
                         leftIcon={<LockKeyholeIcon size={20} />}
-
                         fullWidth
-
                         error={errors.senha?.message}
 
                     />
@@ -124,22 +117,26 @@ export default function LoginForm() {
                     <div className={styles.loginFormButtonEntrar}>
                         <Button type="submit"
                             variant="accent"
+                            size="md"
                             fullWidth={true}
                             disabled={loading} 
                         >
                             {loading ? "Entrando..." : "Entrar"}
                         </Button>
                     </div>
-                    <hr />
+                    <div className={styles.loginFormDivider}>
+                        <span>ou</span>
+                    </div>
                     <div className={styles.loginFormButtonGoogle}>
                         <Button 
                             type="submit" 
                             variant="secondary"
+                            size="md"
                             fullWidth={true}
                             disabled={loading}
                             leftIcon={<GoogleIcon />}
                         >
-                            {loading ? "Entrando..." : "Entrar com o Google"}
+                            Entrar com o Google
                     </Button>
                     </div>
                 </form>
